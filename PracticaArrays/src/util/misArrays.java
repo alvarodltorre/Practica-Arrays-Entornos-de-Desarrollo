@@ -102,6 +102,36 @@ public abstract class misArrays {
 	}
 	
 	
-	
+	/**
+	 * Metodo minimaNota, el cual, comprueba con una excepcion
+	 * IllegalArgumentException si los numeros guardados en el array estan entre 1 y
+	 * 10. Si es así, comprueba cual es el numero más pequeño entre todos los numeros del array pasada por parametro.
+	 * 
+	 * @param Array de las notas.
+	 * 
+	 * @return Devuelve el valor mas pequeño de los numeros del array pasada por parametro.
+	 *
+	 * @throws IllegalArgumentException
+	 */
+	public static int minimaNota(int[] arrayNotas) {
+
+		Arrays.sort(arrayNotas);
+
+		for (int i = 0; i < arrayNotas.length; i++) {
+			if (arrayNotas[i] < 0 || arrayNotas[i] > 10) {
+				throw new IllegalArgumentException("Uno de los numeros no esta entre 0 y 10.");
+			}
+		}
+
+		int valorMinimo = arrayNotas[0];
+
+		for (int i = 0; i < arrayNotas.length; i++) {
+			if (arrayNotas[i] < valorMinimo) {
+				valorMinimo = arrayNotas[i];
+			}
+		}
+		
+		return valorMinimo;
+	}
 
 }
