@@ -11,7 +11,7 @@ public abstract class misArrays {
 	 * 
 	 * @param Array de las notas.
 	 * 
-	 * @return Devuelve la media de los numeros del array pasada por parametros.
+	 * @return Devuelve la media de los numeros del array pasada por parametro.
 	 *
 	 * @throws IllegalArgumentException
 	 */
@@ -30,15 +30,14 @@ public abstract class misArrays {
 		return resultado;
 	}
 
-	
 	/**
 	 * Metodo medianaNotas, el cual, comprueba con una excepcion
 	 * IllegalArgumentException si los numeros guardados en el array estan entre 1 y
-	 * 10. Si es así, realiza la mediana del array pasado por parametros.
+	 * 10. Si es así, realiza la mediana del array pasado por parametro.
 	 * 
 	 * @param Array de las notas.
 	 * 
-	 * @return Devuelve la mediana de los numeros del array pasada por parametros.
+	 * @return Devuelve la mediana de los numeros del array pasada por parametro.
 	 *
 	 * @throws IllegalArgumentException
 	 */
@@ -68,5 +67,41 @@ public abstract class misArrays {
 
 		}
 	}
+	
+	
+	/**
+	 * Metodo maximaNota, el cual, comprueba con una excepcion
+	 * IllegalArgumentException si los numeros guardados en el array estan entre 1 y
+	 * 10. Si es así, comprueba cual es el numero más grande entre todos los numeros del array pasada por parametro.
+	 * 
+	 * @param Array de las notas.
+	 * 
+	 * @return Devuelve el valor maximo de los numeros del array pasada por parametro.
+	 *
+	 * @throws IllegalArgumentException
+	 */
+	public static int maximaNota(int[] arrayNotas) {
+
+		Arrays.sort(arrayNotas);
+
+		for (int i = 0; i < arrayNotas.length; i++) {
+			if (arrayNotas[i] < 0 || arrayNotas[i] > 10) {
+				throw new IllegalArgumentException("Uno de los numeros no esta entre 0 y 10.");
+			}
+		}
+
+		int valorMaximo = arrayNotas[0];
+
+		for (int i = 0; i < arrayNotas.length; i++) {
+			if (arrayNotas[i] > valorMaximo) {
+				valorMaximo = arrayNotas[i];
+			}
+		}
+		
+		return valorMaximo;
+	}
+	
+	
+	
 
 }
